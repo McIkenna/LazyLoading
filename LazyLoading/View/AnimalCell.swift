@@ -9,7 +9,7 @@ import UIKit
 
 class AnimalCell: UITableViewCell {
     
-    @IBOutlet weak var animalImage : UIImageView!
+    @IBOutlet weak var animalImage :LazyLoading! //UIImageView!
     @IBOutlet weak var animalName : UILabel!
 
     override func awakeFromNib() {

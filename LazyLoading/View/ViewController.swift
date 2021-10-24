@@ -7,13 +7,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
    
     var myTableView : UITableView = UITableView()
     var animalData : AnimalNetworkManager = AnimalNetworkManager()
     var animal : [Animal]? = nil
-    
-  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +19,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         setupUI()
         loadDataOnView()
+        
     }
     
     func setupUI(){
         self.view.addSubview(myTableView)
         myTableView.dataSource = self
+        myTableView.delegate = self
         let customNib = UINib(nibName: "AnimalCell", bundle: nil)
        // myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CustomTable")
         myTableView.register(customNib, forCellReuseIdentifier: "AnimalCell")
@@ -33,7 +33,6 @@ class ViewController: UIViewController, UITableViewDataSource {
         myTableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         myTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         myTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        
         myTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
     
@@ -55,16 +54,30 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnimalCell", for: indexPath) as! AnimalCell
-        let animal = self.animal?[indexPath.row]
-        cell.animalName.text = animal?.name
-        let animalImageUrl = URL(string: (animal?.image)!)!
-        let animalImageData = try? Data(contentsOf: animalImageUrl)
-        cell.animalImage.image = UIImage(data: animalImageData!)
-       // cell.textLabel?.text  = itemsToLoad[indexPath.row]
-       /* if(indexPath.row % 2 != 0){
-            cell.backgroundColor = .gray
-        }*/
+        let animalObj = self.animal?[indexPath.row]
+        cell.animalName.text = animalObj?.name
+        let animalImageUrl = URL(string: (animalObj?.image)!)!
+       // let animalImageData = try? Data(contentsOf: animalImageUrl)
+        //cell.animalImage.image = UIImage(data: animalImageData!)
+        cell.animalImage.loadImage(fromURL: animalImageUrl, placeHolderImage: "previewImage")
+     
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+
+        let nextPage = AnimalDetail()
+        let animalObj = animal?[indexPath.row]
+        let animalImageUrl = URL(string: (animalObj?.image)!)!
+        let animalImageData = try? Data(contentsOf: animalImageUrl)
+        nextPage.titlePage = animalObj?.name
+        nextPage.image = UIImage(data: animalImageData!)
+        //let navNC = UINavigationController(rootViewController: nextPage)
+        //navNC.modalPresentationStyle = .fullScreen
+        self.navigationController?.pushViewController(nextPage, animated: true)
+      
+        
     }
 }
 

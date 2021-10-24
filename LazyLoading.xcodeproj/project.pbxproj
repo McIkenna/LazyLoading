@@ -16,6 +16,8 @@
 		BD9C116327205B6B00E359BE /* AnimalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD9C116127205B6B00E359BE /* AnimalCell.xib */; };
 		BD9C116527205BD800E359BE /* AnimalDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C116427205BD800E359BE /* AnimalDataModel.swift */; };
 		BD9C116727205BF700E359BE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C116627205BF700E359BE /* NetworkManager.swift */; };
+		BD9C11922721A1C800E359BE /* LazyLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C11912721A1C700E359BE /* LazyLoading.swift */; };
+		BD9C11C627248CD800E359BE /* AnimalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9C11C527248CD800E359BE /* AnimalDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		BD9C116127205B6B00E359BE /* AnimalCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalCell.xib; sourceTree = "<group>"; };
 		BD9C116427205BD800E359BE /* AnimalDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDataModel.swift; sourceTree = "<group>"; };
 		BD9C116627205BF700E359BE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BD9C11912721A1C700E359BE /* LazyLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyLoading.swift; sourceTree = "<group>"; };
+		BD9C11C527248CD800E359BE /* AnimalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,8 @@
 				BD9C114D2720592000E359BE /* ViewController.swift */,
 				BD9C116027205B6B00E359BE /* AnimalCell.swift */,
 				BD9C116127205B6B00E359BE /* AnimalCell.xib */,
+				BD9C11912721A1C700E359BE /* LazyLoading.swift */,
+				BD9C11C527248CD800E359BE /* AnimalDetail.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD9C11C627248CD800E359BE /* AnimalDetail.swift in Sources */,
+				BD9C11922721A1C800E359BE /* LazyLoading.swift in Sources */,
 				BD9C116727205BF700E359BE /* NetworkManager.swift in Sources */,
 				BD9C116527205BD800E359BE /* AnimalDataModel.swift in Sources */,
 				BD9C114E2720592000E359BE /* ViewController.swift in Sources */,
